@@ -10,19 +10,23 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { advertsReducer } from './adverts/adertsSlice';
 
-const favoritePersistConfig = {
-  key: 'favorite',
-  storage,
-  whitelist: ['token'],
+import { advertsReducer } from './adverts/slice';
+// import {favoritesReduser} from './favoriteSlice';
+
+// налаштування для redux-persist
+const persistConfig = {
+  key: 'favorites', // ключ для LS
+  storage, // сховище для збереження даних
 };
 
+// persistReducer огортає favoritesReduser  з налаштуваннями persistConfig, що дозволяє зберігати стан в LS.
+// const persistedReducer = persistReducer(persistConfig, favoritesReduser);
+// створення redux-stor
 export const store = configureStore({
   reducer: {
-    favorite: persistReducer(favoritePersistConfig),
     adverts: advertsReducer,
-  
+    // favorites: persistedReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -32,5 +36,5 @@ export const store = configureStore({
     }),
   devTools: process.env.NODE_ENV === 'development',
 });
-
+// створюємо persistor об'єкт для забезпечення збереження стану в LS
 export const persistor = persistStore(store);

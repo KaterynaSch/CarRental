@@ -9,7 +9,9 @@ export const Logo = () => {
           <use xlinkHref={`${sprite}#icon-logo`} />
         </StyledSVG>
       </Link>
-      <LogoText>car<AccentText>rental</AccentText></LogoText>
+      <LogoText>
+        car<AccentText>rental</AccentText>
+      </LogoText>
     </LogoContainer>
   );
 };

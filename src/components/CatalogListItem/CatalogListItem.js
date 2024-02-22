@@ -12,14 +12,16 @@ import {
   StyledImg,
 } from './CatalogListItem.styled';
 
-export const CatalogListItem = ({ car }) => {
-  
-  const [, city, country] = car.address.split(',').map(part => part.trim());
-  const randomFunctionality = car.functionalities[Math.floor(Math.random() * car.functionalities.length)];
+export const CatalogListItem = ({ advert }) => {
+  const [, city, country] = advert.address.split(',').map(part => part.trim());
+  const randomFunctionality =
+    advert.functionalities[
+      Math.floor(Math.random() * advert.functionalities.length)
+    ];
   return (
     <ItemWrapper>
       <ImgWrapper>
-        <StyledImg src={car.img} alt={car.make} />
+        <StyledImg src={advert.img} alt={advert.make} />
         <ButtonHeart>
           <StyledHartSVG>
             <use xlinkHref={`${sprite}#icon-heart`} />
@@ -29,22 +31,22 @@ export const CatalogListItem = ({ car }) => {
 
       <MainInfo>
         <InfoText>
-          {car.make} <AccentText>{car.model}</AccentText>, {car.year}
+          {advert.make} <AccentText>{advert.model}</AccentText>, {advert.year}
         </InfoText>
-        <InfoText>{car.rentalPrice}</InfoText>
+        <InfoText>{advert.rentalPrice}</InfoText>
       </MainInfo>
 
       <DescriptionInfo>
         <li>
           <p>{city}</p>
           <p>{country}</p>
-          <p>{car.rentalCompany}</p>
-          {car.accessories.includes('Premium') && <p>Premium</p>}
+          <p>{advert.rentalCompany}</p>
+          {advert.accessories.includes('Premium') && <p>Premium</p>}
         </li>
         <li>
-          <p>{car.type}</p>
-          <p>{car.make}</p>
-          <p>{car.mileage}</p>          
+          <p>{advert.type}</p>
+          <p>{advert.make}</p>
+          <p>{advert.mileage}</p>
         </li>
         <li>
           <p>{randomFunctionality}</p>

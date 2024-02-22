@@ -8,15 +8,16 @@ export const Layout = () => {
       style={{
         width: '100%',
         minHeight: '100vh',
-        // backgroundColor: '#c2d4ff',
         margin: '0 auto',
-        padding: '0 128px',
+        padding: '0 128px 150px',
       }}
     >
       <Header />
-      <Suspense>
-        <Outlet />
-      </Suspense>
+      <main>
+        <Suspense>
+          <Outlet />
+        </Suspense>
+      </main>
     </div>
   );
 };

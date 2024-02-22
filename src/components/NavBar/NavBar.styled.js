@@ -13,7 +13,7 @@ export const NavigationLink = styled(NavLink)`
   font-weight: 700;
   text-decoration: none;
   font-size: 18px;
-  padding: ${p => p.theme.spacing(2)} ;
+  padding: ${p => p.theme.spacing(2)};
   border-bottom: 2px solid transparent;
   border-radius: ${p => p.theme.radius.s};
   color: ${p => p.theme.colors.lightBlue};
