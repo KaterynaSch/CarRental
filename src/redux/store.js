@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
-  persistReducer,
+  // persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -9,16 +9,16 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+// import storage from 'redux-persist/lib/storage';
 
 import { advertsReducer } from './adverts/slice';
 // import {favoritesReduser} from './favoriteSlice';
 
 // налаштування для redux-persist
-const persistConfig = {
-  key: 'favorites', // ключ для LS
-  storage, // сховище для збереження даних
-};
+// const persistConfig = {
+//   key: 'favorites', // ключ для LS
+//   storage, // сховище для збереження даних
+// };
 
 // persistReducer огортає favoritesReduser  з налаштуваннями persistConfig, що дозволяє зберігати стан в LS.
 // const persistedReducer = persistReducer(persistConfig, favoritesReduser);
