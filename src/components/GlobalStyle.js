@@ -39,16 +39,13 @@ export const GlobalStyle = createGlobalStyle`
 body {
   margin: 0;
   font-family: 'Manrope', sans-serif;
+  
   font-size: 14px;
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color : ${p => p.theme.colors.dark};
+
 }
 
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
 
 p,
 h1,

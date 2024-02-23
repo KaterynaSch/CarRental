@@ -9,14 +9,16 @@ export const ImgWrapper = styled.div`
   padding: 0;
   width: 278px;
   height: 268px;
-  overflow: hidden;  
+  overflow: hidden;
   background: ${p => p.theme.colors.imgBgn} ${p => p.theme.colors.gradient};
   border-radius: ${p => p.theme.radius.m};
   margin-bottom: ${p => p.theme.spacing(3.5)};
 `;
+
 export const StyledImg = styled.img`
-  object-fit: cover; 
+  object-fit: cover;
 `;
+
 export const ButtonHeart = styled.button`
   position: absolute;
   display: flex;
@@ -28,27 +30,25 @@ export const ButtonHeart = styled.button`
   height: 18px;
   background-color: transparent;
   border: none;
-`;
-export const StyledHartSVG = styled.svg`
-  stroke: ${p => p.theme.colors.white};
-  opacity: 0.8;
-  fill: transparent;
-  width: 18px;
-  height: 18px;
-
-  &:hover,
-  &:active {
-    stroke: ${p => p.theme.colors.blue};
-    fill: ${p => p.theme.colors.blue};
-    opacity: 1;
+  svg {
+    width: 18px;
+    height: 18px;
+    stroke: ${p =>
+      p['data-favorite'] === true
+        ? p.theme.colors.lightBlue
+        : p.theme.colors.iconStroke};
+    fill: ${p =>
+      p['data-favorite'] === true ? p.theme.colors.lightBlue : 'transparent'};
   }
 `;
+
 export const MainInfo = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: ${p => p.theme.spacing(2)};
 `;
+
 export const InfoText = styled.p`
   font-weight: 500;
   font-size: 16px;
@@ -57,15 +57,15 @@ export const InfoText = styled.p`
 export const AccentText = styled.span`
   color: ${p => p.theme.colors.lightBlue};
 `;
+
 export const DescriptionInfo = styled.ul`
   margin-bottom: ${p => p.theme.spacing(7)};
-  li {
+  li:not(:last-child) {
     margin-bottom: ${p => p.theme.spacing(1)};
     padding: 0;
   }
   p {
     font-size: 12px;
-    color: ${p => p.theme.colors.dark};
     opacity: 0.5;
     margin: 0;
     display: inline-block;
@@ -92,7 +92,7 @@ export const CardButton = styled.button`
   background-color: ${p => p.theme.colors.lightBlue};
   color: ${p => p.theme.colors.white};
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   &:hover,
   &:focus {
     background-color: ${p => p.theme.colors.blue};
