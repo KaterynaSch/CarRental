@@ -16,7 +16,7 @@ const theme = {
     white: '#fff',
     dark: '#121417',
     light: '#f7f7fb',
-    labelgrey: ' #8a8a89',
+    labelGrey: ' #8a8a89',
     imgBgn: ' #f3f3f2',
     iconStroke: 'rgba(255, 255, 255, 0.8)',
     conditionBgn: '#F9F9F9',

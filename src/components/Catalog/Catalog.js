@@ -7,14 +7,12 @@ import { ButtonLoadMore } from './Catalog.styled';
 import { BrandDropDown } from 'components/BrandDropDown/BrandDropDown';
 
 export const Catalog = () => {
-
   const dispatch = useDispatch();
   const limit = useSelector(selectAdvertsLimit);
 
   const [loadMore, setLoadMore] = useState(true);
   const [page, setPage] = useState(1);
-
-  const [filteredAdverts, setFilteredAdverts ] = useState([]);
+  const [filteredAdverts, setFilteredAdverts] = useState([]);
 
   useEffect(() => {
     dispatch(fetchAdverts({ page, limit }));
@@ -30,9 +28,10 @@ export const Catalog = () => {
 
   return (
     <>
-      <BrandDropDown onSelectBrand={setFilteredAdverts}/>
-      <CatalogList adverts={filteredAdverts.length > 0 ? filteredAdverts : adverts} />
-
+      <BrandDropDown onSelectBrand={setFilteredAdverts} />
+      <CatalogList
+        adverts={filteredAdverts.length > 0 ? filteredAdverts : adverts}
+      />
       {loadMore && (
         <ButtonLoadMore type="button" onClick={handleClick}>
           Load more

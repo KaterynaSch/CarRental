@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../images/icons.svg';
 import { useState } from 'react';
 import Modal from 'react-modal';
@@ -16,6 +16,7 @@ import {
 } from './CatalogListItem.styled';
 import { toggleFavorite } from 'redux/adverts/favoriteSlice';
 import { AdvertModal } from '../AdvertModal/AdvertModal';
+import { selectFavoriteAdverts } from 'redux/adverts/selectors';
 
 Modal.setAppElement('#root');
 
@@ -34,10 +35,14 @@ export const CatalogListItem = ({ advert }) => {
     functionalities,
   } = advert;
   const dispatch = useDispatch();
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const favorites = useSelector(selectFavoriteAdverts);
+  const [isFavorite, setIsFavorite] = useState(
+    favorites.some(favorite => favorite.id === id)
+  );
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [, city, country] = address.split(',').map(part => part.trim());
+  
   const randomFunctionality =
     functionalities[Math.floor(Math.random() * functionalities.length)];
 
