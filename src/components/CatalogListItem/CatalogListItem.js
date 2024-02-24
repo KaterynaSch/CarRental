@@ -21,6 +21,7 @@ Modal.setAppElement('#root');
 
 export const CatalogListItem = ({ advert }) => {
   const {
+    id,
     img,
     make,
     rentalPrice,
@@ -30,7 +31,6 @@ export const CatalogListItem = ({ advert }) => {
     type,
     model,
     year,
-    mileage,
     functionalities,
   } = advert;
   const dispatch = useDispatch();
@@ -86,7 +86,7 @@ export const CatalogListItem = ({ advert }) => {
         <li>
           <p>{type}</p>
           <p>{make}</p>
-          <p>{mileage}</p>
+          <p>{id}</p>
         </li>
         <li>
           <p>{randomFunctionality}</p>

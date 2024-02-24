@@ -27,14 +27,16 @@ export const addMoreAdverts = createAsyncThunk(
   }
 );
 
-export const getAdvert = createAsyncThunk(
-  'adverts, getById',
-  async (id, thunkAPI) => {
-    try {
-      const response = await axios.post(`/adverts/${id}`);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+// export const getByMake = createAsyncThunk(
+//   'adverts, getByMake',
+//   async ({make}, thunkAPI) => {
+//     try {
+//       const response = await axios.post(`/adverts?make=${make}`);
+//       console.log(response.data);
+//       return response.data;
+      
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );

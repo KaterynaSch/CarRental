@@ -3,49 +3,50 @@ import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle` 
 
-/* manrope-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap; 
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/manrope-v15-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/manrope-v15-latin-regular.woff2') format('woff2');
 }
-/* manrope-500 - latin */
+
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 500;
-  src: url('../fonts/manrope-v15-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/manrope-v15-latin-500.woff2') format('woff2');
 }
-/* manrope-600 - latin */
+
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap; 
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 600;
-  src: url('../fonts/manrope-v15-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/manrope-v15-latin-600.woff2') format('woff2'); 
 }
-/* montserrat-regular - latin */
+
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap; 
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/montserrat-v26-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/montserrat-v26-latin-regular.woff2') format('woff2'); 
 }
 
 body {
   margin: 0;
-  font-family: 'Manrope', sans-serif;
-  
+  font-family: 'Manrope', sans-serif;  
   font-size: 14px;
   line-height: 1.5;
   color : ${p => p.theme.colors.dark};
 
 }
 
+body.ReactModal__Body--open {
+    overflow: hidden;
+}  
 
 p,
 h1,
@@ -66,8 +67,7 @@ ul {
 img {
   display: block;
   width: 100%;
-  height: 100%;
-  /* height: auto; */
+  height: 100%;  
 }
 
 a {
@@ -79,5 +79,4 @@ button {
   cursor: pointer;
   font-family: inherit;
 }
-
 `;

@@ -7,5 +7,5 @@ export const StyledList = styled.ul`
   justify-content: center;
   row-gap: ${p => p.theme.spacing(12.5)};
   column-gap: ${p => p.theme.spacing(7)};
-  margin-bottom: ${p => p.theme.spacing(25)};
+  margin: ${p => p.theme.spacing(12.5)} 0 ${p => p.theme.spacing(25)};
 `;

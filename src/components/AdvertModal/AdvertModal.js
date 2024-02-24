@@ -2,19 +2,24 @@ import Modal from 'react-modal';
 import sprite from '../../images/icons.svg';
 import {
   AccentText,
+  ButtonRental,
   CLoseButton,
+  ConditionList,
   DescriptionInfo,
   DescriptionSent,
   IconClose,
   ImgModal,
   ImgWrapper,
-  InfoText,
+  InfoTitle,
+  InfoWrapper,
   ModalWrapper,
+  Subtitle,
 } from './AdvertModal.styled';
 
 Modal.setAppElement('#root');
 
 export const AdvertModal = ({ onCloseModal, advert }) => {
+
   const {
     id,
     img,
@@ -22,19 +27,24 @@ export const AdvertModal = ({ onCloseModal, advert }) => {
     fuelConsumption,
     engineSize,
     description,
-    // rentalPrice,
+    rentalPrice,
     address,
-    // rentalCompany,
     type,
     model,
     year,
-    // mileage,
+    rentalConditions,
+    mileage,
     accessories,
     functionalities,
   } = advert;
   const [, city, country] = address.split(',').map(part => part.trim());
   const [func1, func2, func3] = functionalities;
   const [acc1, acc2, acc3] = accessories;
+  const conditionsArray = rentalConditions.split('\n');
+  const age = conditionsArray[0].split(': ')[1];
+  const license = conditionsArray[1];
+  const deposit = conditionsArray[2];
+
   return (
     <ModalWrapper>
       <CLoseButton onClick={onCloseModal}>
@@ -45,11 +55,11 @@ export const AdvertModal = ({ onCloseModal, advert }) => {
       <ImgWrapper>
         <ImgModal src={img} alt={make} />
       </ImgWrapper>
-      <ul>
+      <InfoWrapper>
         <li>
-          <InfoText>
+          <InfoTitle>
             {make} <AccentText>{model}</AccentText>, {year}
-          </InfoText>
+          </InfoTitle>
           <DescriptionInfo>
             <li>
               <p>{city}</p>
@@ -63,10 +73,10 @@ export const AdvertModal = ({ onCloseModal, advert }) => {
               <p>Engine Size: {engineSize}</p>
             </li>
           </DescriptionInfo>
+          <DescriptionSent>{description}</DescriptionSent>
         </li>
         <li>
-          <DescriptionSent>{description}</DescriptionSent>
-          <p>Accessories and functionalities:</p>
+          <Subtitle>Accessories and functionalities:</Subtitle>
           <DescriptionInfo>
             <li>
               <p>{func1}</p>
@@ -81,20 +91,27 @@ export const AdvertModal = ({ onCloseModal, advert }) => {
           </DescriptionInfo>
         </li>
         <li>
-          <p>Rental Conditions:</p>
-          <ul>
+          <Subtitle>Rental Conditions:</Subtitle>
+          <ConditionList>
             <li>
-              <p>Minimum age : {}</p>
-              <p></p>
+              <p>
+                Minimum age: <span>{age}</span>
+              </p>
+              <p>{license}</p>
             </li>
             <li>
-              <p></p>
-              <p></p>
-              <p></p>
+              <p>{deposit}</p>
+              <p>
+                Mileage: <span>{mileage}</span>
+              </p>
+              <p>
+                Prise: <span>{rentalPrice}</span>
+              </p>
             </li>
-          </ul>
+          </ConditionList>
         </li>
-      </ul>
+      </InfoWrapper>
+      <ButtonRental href="tel:+380730000000">Rental car</ButtonRental>
     </ModalWrapper>
   );
 };
