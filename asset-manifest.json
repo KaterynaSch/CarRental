@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/CarRental/static/css/main.cd2e038f.css",
-    "main.js": "/CarRental/static/js/main.906f5321.js",
+    "main.css": "/CarRental/static/css/main.f6c52d27.css",
+    "main.js": "/CarRental/static/js/main.3d13c4ce.js",
     "static/js/526.e5ceaae1.chunk.js": "/CarRental/static/js/526.e5ceaae1.chunk.js",
     "static/css/79.f49dc2e4.chunk.css": "/CarRental/static/css/79.f49dc2e4.chunk.css",
     "static/js/79.05bce06b.chunk.js": "/CarRental/static/js/79.05bce06b.chunk.js",
@@ -10,9 +10,12 @@
     "static/js/948.54351361.chunk.js": "/CarRental/static/js/948.54351361.chunk.js",
     "static/js/548.7db2032e.chunk.js": "/CarRental/static/js/548.7db2032e.chunk.js",
     "static/media/icons.svg": "/CarRental/static/media/icons.5baafaac3255ccb0f243ff156508f7aa.svg",
+    "static/media/manrope-v15-latin-600.woff2": "/CarRental/static/media/manrope-v15-latin-600.ec61c26ae9843c74c66e.woff2",
+    "static/media/manrope-v15-latin-regular.woff2": "/CarRental/static/media/manrope-v15-latin-regular.5b06bf94f857e4244b64.woff2",
+    "static/media/manrope-v15-latin-500.woff2": "/CarRental/static/media/manrope-v15-latin-500.b6bf3db6256270076d37.woff2",
     "index.html": "/CarRental/index.html",
-    "main.cd2e038f.css.map": "/CarRental/static/css/main.cd2e038f.css.map",
-    "main.906f5321.js.map": "/CarRental/static/js/main.906f5321.js.map",
+    "main.f6c52d27.css.map": "/CarRental/static/css/main.f6c52d27.css.map",
+    "main.3d13c4ce.js.map": "/CarRental/static/js/main.3d13c4ce.js.map",
     "526.e5ceaae1.chunk.js.map": "/CarRental/static/js/526.e5ceaae1.chunk.js.map",
     "79.f49dc2e4.chunk.css.map": "/CarRental/static/css/79.f49dc2e4.chunk.css.map",
     "79.05bce06b.chunk.js.map": "/CarRental/static/js/79.05bce06b.chunk.js.map",
@@ -22,7 +25,7 @@
     "548.7db2032e.chunk.js.map": "/CarRental/static/js/548.7db2032e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd2e038f.css",
-    "static/js/main.906f5321.js"
+    "static/css/main.f6c52d27.css",
+    "static/js/main.3d13c4ce.js"
   ]
 }
