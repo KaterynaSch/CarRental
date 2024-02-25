@@ -1,11 +1,11 @@
 import { StyledList } from 'components/CatalogList/CatalogList.styled';
 import { CatalogListItem } from 'components/CatalogListItem/CatalogListItem';
 import { useSelector } from 'react-redux';
-import { selectFavoriteAdverts } from 'redux/adverts/selectors';
+import { selectFavoriteAdverts } from 'redux/favorites/selectors';
 
 export const FavoriteList = () => {
   const adverts = useSelector(selectFavoriteAdverts);
-  
+
   return (
     <>
       {' '}

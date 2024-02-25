@@ -14,9 +14,9 @@ import {
   MainInfo,
   StyledImg,
 } from './CatalogListItem.styled';
-import { toggleFavorite } from 'redux/adverts/favoriteSlice';
+import { toggleFavorite } from 'redux/favorites/favoriteSlice';
 import { AdvertModal } from '../AdvertModal/AdvertModal';
-import { selectFavoriteAdverts } from 'redux/adverts/selectors';
+import { selectFavoriteAdverts } from 'redux/favorites/selectors';
 
 Modal.setAppElement('#root');
 

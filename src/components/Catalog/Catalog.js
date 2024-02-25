@@ -5,14 +5,14 @@ import { fetchAdverts } from 'redux/adverts/operations';
 import { selectAdverts, selectedPage } from 'redux/adverts/selectors';
 import { ButtonLoadMore } from './Catalog.styled';
 import { BrandDropDown } from 'components/BrandDropDown/BrandDropDown';
-import toast from 'react-hot-toast';
 import { changePage } from 'redux/adverts/advertSlice';
+import { selectBrand } from 'redux/brand/selectors';
 
 export const Catalog = () => {
   const dispatch = useDispatch();
 
   const [loadMore, setLoadMore] = useState(false);
-  const [filteredAdverts, setFilteredAdverts] = useState([]);
+
   const adverts = useSelector(selectAdverts);
   const page = useSelector(selectedPage);
   const limit = 12;
@@ -29,28 +29,17 @@ export const Catalog = () => {
     dispatch(changePage(1));
   };
 
-  const handleBrandSelect = brand => {
-    const filteredAdverts = adverts.filter(advert => advert.make === brand);
-    setFilteredAdverts(filteredAdverts);
-    setLoadMore(false);
-    if (filteredAdverts.length === 0) {
-  
-      toast.error("No adverts found. Click button 'Load More' and try again!");
-    }
-    console.log(filteredAdverts);
-  };
+  const { brand } = useSelector(selectBrand);
+  const filteredAdverts = adverts.filter(advert => advert.make === brand);
 
   return (
     <>
-      <BrandDropDown onSelectBrand={handleBrandSelect} 
-      // onResetFilter={handleBrandSelect}
-      />
+      <BrandDropDown />
       <CatalogList
         adverts={filteredAdverts.length > 0 ? filteredAdverts : adverts}
       />
       {loadMore && (
         <ButtonLoadMore type="button" onClick={handleClick}>
-          {/* style={{ display: loadMore && filteredAdverts.length === 0 ? 'none' : 'block' }} */}
           Load more
         </ButtonLoadMore>
       )}

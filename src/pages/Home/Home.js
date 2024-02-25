@@ -1,6 +1,6 @@
-import { Text, Title } from './HomaPage.styled';
+import { Text, Title } from './Home.styled';
 
-export default function HomePage() {
+export default function Home() {
   return (
     <div>
       <Title>CAR RENTAL</Title>

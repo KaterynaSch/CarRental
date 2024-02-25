@@ -5,8 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 import { persistor, store } from 'redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
-import { Toaster } from 'react-hot-toast';
-import { GlobalStyle } from 'components/GlobalStyle';
+import { GlobalStyle } from 'GlobalStyle';
 import { App } from 'components/App';
 
 const theme = {
@@ -41,7 +40,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <ThemeProvider theme={theme}>
             <GlobalStyle />
             <App />
-            <Toaster position="top-right" />
           </ThemeProvider>
         </BrowserRouter>
       </PersistGate>

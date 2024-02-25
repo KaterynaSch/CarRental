@@ -1,16 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import Select from 'react-select';
 
-import {
-  SelectWrapper,
-  StyledButton,
-  StyledFilter,
-  StyledLabel,
-} from './BrandDropDown.styled';
-// import Placeholder from 'react-select/dist/declarations/src/components/Placeholder';
-
+import { StyledFilter, StyledLabel } from './BrandDropDown.styled';
+import { useDispatch } from 'react-redux';
+import { changeBrand } from 'redux/brand/brandSlice';
 
 const options = [
+  { value: 'All brand', label: 'all brand' },
   { value: 'Buick', label: 'Buick' },
   { value: 'Volvo', label: 'Volvo' },
   { value: 'HUMMER', label: 'HUMMER' },
@@ -65,10 +61,6 @@ const customStyles = {
     fill: '#121417',
   }),
 
-  dropdownIndicator: (provided, state) => ({
-    ...provided,
-    transform: state.menuIsOpen ? 'rotate(180deg)' : null,
-  }),
   indicatorSeparator: provided => ({
     ...provided,
     display: 'none',
@@ -91,18 +83,18 @@ const customStyles = {
   }),
 };
 
-export const BrandDropDown = ({ onSelectBrand, onResetFilter }) => {
+export const BrandDropDown = () => {
+  const dispatch = useDispatch();
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const [brand, setBrand] = useState("");
 
-  // const [selectedOption, setSelectedOption] = useState(null);
   const selectRef = useRef(null);
 
-  const handleChangeBrand = options => {
-    const brand = options.value;
-    // const brand = setSelectedOption(options.value);
-    setBrand(brand);
-    onSelectBrand(brand);
+  const handleChangeBrand = option => {
+    if (option.value === 'All brand') {
+      dispatch(changeBrand(''));
+    } else {
+      dispatch(changeBrand(option.value));
+    }
     setMenuIsOpen(false);
   };
 
@@ -115,13 +107,6 @@ export const BrandDropDown = ({ onSelectBrand, onResetFilter }) => {
   const toggleSelect = () => {
     setMenuIsOpen(!menuIsOpen);
   };
-  const handleResetFilter = () => {
-    setBrand(null)
-    onResetFilter(brand)
-    // setSelectedOption(null);
-    // setMenuIsOpen(false);
-  };
-  
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
     return () => {
@@ -130,24 +115,17 @@ export const BrandDropDown = ({ onSelectBrand, onResetFilter }) => {
   }, []);
 
   return (
-    <div>
-      <SelectWrapper ref={selectRef}>
-        <StyledLabel>Car brand</StyledLabel>
-        <StyledFilter>
-          <Select
-            options={options}
-            // value={selectedOption}
-            styles={customStyles}
-            onChange={handleChangeBrand}
-            menuIsOpen={menuIsOpen}
-            onMenuOpen={toggleSelect}
-            onMenuClose={toggleSelect}
-            placeholder={'Enter the text'}
-            onResetFilter={handleResetFilter}
-          />{' '}
-          <StyledButton onClick={handleResetFilter}>Reset filter</StyledButton>
-        </StyledFilter>
-      </SelectWrapper>
-    </div>
+    <StyledFilter ref={selectRef}>
+      <StyledLabel>Car brand</StyledLabel>
+      <Select
+        options={options}
+        styles={customStyles}
+        onChange={handleChangeBrand}
+        menuIsOpen={menuIsOpen}
+        onMenuOpen={toggleSelect}
+        onMenuClose={toggleSelect}
+        placeholder={'Enter the text'}
+      />
+    </StyledFilter>
   );
 };

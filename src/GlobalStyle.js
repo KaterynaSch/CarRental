@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/manrope-v15-latin-regular.woff2') format('woff2');
+  src: url('/src/fonts/manrope-v15-latin-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 500;
-  src: url('../fonts/manrope-v15-latin-500.woff2') format('woff2');
+  src: url('./fonts/manrope-v15-latin-500.woff2') format('woff2');
 }
 
 @font-face {
@@ -24,15 +24,7 @@ export const GlobalStyle = createGlobalStyle`
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 600;
-  src: url('../fonts/manrope-v15-latin-600.woff2') format('woff2'); 
-}
-
-@font-face {
-  font-display: swap; 
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/montserrat-v26-latin-regular.woff2') format('woff2'); 
+  src: url('./fonts/manrope-v15-latin-600.woff2') format('woff2'); 
 }
 
 body {
