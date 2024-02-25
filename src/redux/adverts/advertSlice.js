@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addMoreAdverts, fetchAdverts } from './operations';
+import { fetchAdverts } from './operations';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -14,9 +14,14 @@ const advertsSlice = createSlice({
   name: 'adverts',
   initialState: {
     adverts: [],
-    advertsLimit: 12,
+    page: 1,
     isLoading: false,
     error: null,
+  },
+  reducers: {
+    changePage: (state, action) => {
+      state.page += action.payload;
+    },
   },
 
   extraReducers: builder => {
@@ -25,18 +30,10 @@ const advertsSlice = createSlice({
       .addCase(fetchAdverts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.adverts = action.payload;
-      })
-      .addCase(fetchAdverts.rejected, handleRejected)
-
-      .addCase(addMoreAdverts.pending, handlePending)
-      .addCase(addMoreAdverts.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
         state.adverts = [...state.adverts, ...action.payload];
       })
-      .addCase(addMoreAdverts.rejected, handleRejected);
+      .addCase(fetchAdverts.rejected, handleRejected);
   },
 });
-
+export const { changePage } = advertsSlice.actions;
 export const advertsReducer = advertsSlice.reducer;

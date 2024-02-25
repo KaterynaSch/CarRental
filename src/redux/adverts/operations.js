@@ -8,35 +8,10 @@ export const fetchAdverts = createAsyncThunk(
   async ({ page, limit }, thunkAPI) => {
     try {
       const response = await axios.get(`/adverts?page=${page}&limit=${limit}`);
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
-export const addMoreAdverts = createAsyncThunk(
-  'adverts, addMore',
-  async ({ page, limit }, thunkAPI) => {
-    try {
-      const response = await axios.get(`/adverts?page=${page}&limit=${limit}`);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-// export const getByMake = createAsyncThunk(
-//   'adverts, getByMake',
-//   async ({make}, thunkAPI) => {
-//     try {
-//       const response = await axios.post(`/adverts?make=${make}`);
-//       console.log(response.data);
-//       return response.data;
-      
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );

@@ -60,15 +60,17 @@ export const AccentText = styled.span`
 
 export const DescriptionInfo = styled.ul`
   margin-bottom: ${p => p.theme.spacing(7)};
-  li:not(:last-child) {
+
+  li {
     margin-bottom: ${p => p.theme.spacing(1)};
     padding: 0;
+    white-space: nowrap;
   }
   p {
+    display: inline-block;
     font-size: 12px;
     opacity: 0.5;
     margin: 0;
-    display: inline-block;
   }
   p:not(:last-child)::after {
     content: '';

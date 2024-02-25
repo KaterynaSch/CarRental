@@ -42,9 +42,6 @@ export const CatalogListItem = ({ advert }) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [, city, country] = address.split(',').map(part => part.trim());
-  
-  const randomFunctionality =
-    functionalities[Math.floor(Math.random() * functionalities.length)];
 
   const handleToggle = () => {
     dispatch(toggleFavorite(advert));
@@ -92,10 +89,9 @@ export const CatalogListItem = ({ advert }) => {
           <p>{type}</p>
           <p>{make}</p>
           <p>{id}</p>
+         
         </li>
-        <li>
-          <p>{randomFunctionality}</p>
-        </li>
+        <li> <p>{functionalities[0]}</p></li>
       </DescriptionInfo>
       <CardButton type="button" onClick={openModal}>
         Learn more

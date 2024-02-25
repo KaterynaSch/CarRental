@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
 import Select from 'react-select';
 
-import { selectAdverts } from 'redux/adverts/selectors';
-import { SelectWrapper, StyledLabel } from './BrandDropDown.styled';
+import {
+  SelectWrapper,
+  StyledButton,
+  StyledFilter,
+  StyledLabel,
+} from './BrandDropDown.styled';
+// import Placeholder from 'react-select/dist/declarations/src/components/Placeholder';
+
 
 const options = [
   { value: 'Buick', label: 'Buick' },
@@ -31,7 +36,7 @@ const options = [
 const customStyles = {
   control: provided => ({
     ...provided,
-
+    width: '224px',
     minHeight: '48px',
     border: 'none',
     borderColor: 'transparent',
@@ -86,16 +91,18 @@ const customStyles = {
   }),
 };
 
-export const BrandDropDown = ({ onSelectBrand }) => {
+export const BrandDropDown = ({ onSelectBrand, onResetFilter }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [brand, setBrand] = useState("");
 
+  // const [selectedOption, setSelectedOption] = useState(null);
   const selectRef = useRef(null);
-  const adverts = useSelector(selectAdverts);
 
   const handleChangeBrand = options => {
     const brand = options.value;
-    const filtered = adverts.filter(advert => advert.make === brand);
-    onSelectBrand(filtered);
+    // const brand = setSelectedOption(options.value);
+    setBrand(brand);
+    onSelectBrand(brand);
     setMenuIsOpen(false);
   };
 
@@ -108,7 +115,13 @@ export const BrandDropDown = ({ onSelectBrand }) => {
   const toggleSelect = () => {
     setMenuIsOpen(!menuIsOpen);
   };
-
+  const handleResetFilter = () => {
+    setBrand(null)
+    onResetFilter(brand)
+    // setSelectedOption(null);
+    // setMenuIsOpen(false);
+  };
+  
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
     return () => {
@@ -117,17 +130,24 @@ export const BrandDropDown = ({ onSelectBrand }) => {
   }, []);
 
   return (
-    <SelectWrapper ref={selectRef}>
-      <StyledLabel>Car brand</StyledLabel>
-      <Select
-        options={options}
-        styles={customStyles}
-        onChange={handleChangeBrand}
-        menuIsOpen={menuIsOpen}
-        onMenuOpen={toggleSelect}
-        onMenuClose={toggleSelect}
-        placeholder={'Enter the text'}
-      />{' '}
-    </SelectWrapper>
+    <div>
+      <SelectWrapper ref={selectRef}>
+        <StyledLabel>Car brand</StyledLabel>
+        <StyledFilter>
+          <Select
+            options={options}
+            // value={selectedOption}
+            styles={customStyles}
+            onChange={handleChangeBrand}
+            menuIsOpen={menuIsOpen}
+            onMenuOpen={toggleSelect}
+            onMenuClose={toggleSelect}
+            placeholder={'Enter the text'}
+            onResetFilter={handleResetFilter}
+          />{' '}
+          <StyledButton onClick={handleResetFilter}>Reset filter</StyledButton>
+        </StyledFilter>
+      </SelectWrapper>
+    </div>
   );
 };
