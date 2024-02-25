@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 import { persistor, store } from 'redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
-import { GlobalStyle } from 'GlobalStyle';
+import './index.css';
 import { App } from 'components/App';
 
 const theme = {
@@ -37,8 +37,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter basename="/CarRental">
-          <ThemeProvider theme={theme}>
-            <GlobalStyle />
+          <ThemeProvider theme={theme}>            
             <App />
           </ThemeProvider>
         </BrowserRouter>

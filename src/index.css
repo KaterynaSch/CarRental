@@ -1,7 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
-import 'modern-normalize';
-
-export const GlobalStyle = createGlobalStyle` 
+@import 'modern-normalize';
 
 @font-face {
   font-display: swap; 
@@ -32,7 +29,7 @@ body {
   font-family: 'Manrope', sans-serif;  
   font-size: 14px;
   line-height: 1.5;
-  color : ${p => p.theme.colors.dark};
+  color : '121417';
 
 }
 
@@ -71,4 +68,4 @@ button {
   cursor: pointer;
   font-family: inherit;
 }
-`;
+
