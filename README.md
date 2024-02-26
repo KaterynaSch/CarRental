@@ -26,7 +26,7 @@ As base of data uses the UI-servise mockapi [https://mockapi.io/](https://mockap
     This page will automatically reload when you save your changes to the project files.
 
 ##Expand
-The production version of the project will automatically be linted, assembled and deployed on GitHub Pages, in the `gh-pages` branch, whenever the `main` branch is updated. For example, after direct pushu or accepted pool-request. To do this, in the `package.json` edit the `homepage` field, replacing `your_username`and `your_repo_name` on your own, and send the changes to GitHub.
+The production version of the project will automatically be linted, assembled and deployed on GitHub Pages, in the `gh-pages` branch, whenever the `main` branch is updated. For example, after direct push or accepted pool-request. To do this, in the `package.json` edit the `homepage` field, replacing `your_username`and `your_repo_name` on your own, and send the changes to GitHub.
 
 ```json
 "homepage": "https://your_username.github.io/your_repo_name/"
