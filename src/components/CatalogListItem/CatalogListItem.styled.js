@@ -39,6 +39,10 @@ export const ButtonHeart = styled.button`
         : p.theme.colors.iconStroke};
     fill: ${p =>
       p['data-favorite'] === true ? p.theme.colors.lightBlue : 'transparent'};
+    transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  &:hover svg{
+    stroke: ${p => p.theme.colors.lightBlue};
   }
 `;
 

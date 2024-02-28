@@ -1,6 +1,6 @@
 .modal-content {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     right: auto;
     bottom: auto;
@@ -35,11 +35,3 @@
   .ReactModal__Overlay--before-close {
     opacity: 0;
   }
-  
-  .modal-overlay::before,
-  .modal-overlay::after {
-    content: '';
-    display: block;
-    height: 1px;
-    flex-grow: 1;
-  }  

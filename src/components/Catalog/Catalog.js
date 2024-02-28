@@ -38,7 +38,7 @@ export const Catalog = () => {
       <CatalogList
         adverts={filteredAdverts.length > 0 ? filteredAdverts : adverts}
       />
-      {loadMore && (
+      {(loadMore && filteredAdverts.length === 0) && (
         <ButtonLoadMore type="button" onClick={handleClick}>
           Load more
         </ButtonLoadMore>

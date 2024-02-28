@@ -5,7 +5,6 @@ export const HeaderWrapper = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: ${p => p.theme.colors.white};
   border-bottom: 1px solid var(--cornflower);
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08);
 `;

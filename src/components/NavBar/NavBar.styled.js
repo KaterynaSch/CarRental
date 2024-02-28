@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const NavigationWrapper = styled.nav`
+export const NavigationWrapper = styled.ul`
   display: flex;
   flex-direction: row;
   align-items: center;

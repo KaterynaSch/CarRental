@@ -56,6 +56,13 @@ export const CatalogListItem = ({ advert }) => {
     setIsModalOpen(false);
   };
 
+  const handleClose = () => {
+    const modalRoot = document.getElementById('#root');
+    if (modalRoot) {
+      modalRoot.innerHTML = ''; // Remove the content of the modal root element
+    }
+  };
+
   return (
     <ItemWrapper>
       <ImgWrapper>
@@ -89,22 +96,27 @@ export const CatalogListItem = ({ advert }) => {
           <p>{type}</p>
           <p>{make}</p>
           <p>{id}</p>
-         
         </li>
-        <li> <p>{functionalities[0]}</p></li>
+        <li>
+          {' '}
+          <p>{functionalities[0]}</p>
+        </li>
       </DescriptionInfo>
       <CardButton type="button" onClick={openModal}>
         Learn more
       </CardButton>
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        overlayClassName={'modal-overlay'}
-        className={'modal-content'}
-        closeTimeoutMS={300}
-      >
-        <AdvertModal onCloseModal={closeModal} advert={advert} />
-      </Modal>
+      {isModalOpen && (
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          overlayClassName={'modal-overlay'}
+          className={'modal-content'}
+          closeTimeoutMS={300}
+          handleClose={handleClose}
+        >
+          <AdvertModal onCloseModal={closeModal} advert={advert} />
+        </Modal>
+      )}
     </ItemWrapper>
   );
 };
