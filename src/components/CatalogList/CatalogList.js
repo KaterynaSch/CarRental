@@ -6,9 +6,7 @@ export const CatalogList = ({ adverts }) => {
     <>
       <StyledList>
         {adverts.map(advert => (
-          <li key={advert.id}>
-            <CatalogListItem advert={advert} />
-          </li>
+          <CatalogListItem key={advert.id} advert={advert} />
         ))}
       </StyledList>
     </>

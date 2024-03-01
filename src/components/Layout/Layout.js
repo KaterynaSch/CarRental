@@ -10,7 +10,6 @@ export const Layout = () => {
         minHeight: '100vh',
         margin: '0 auto',
         padding: '0 128px 150px',
-        // background: 'linear-gradient(to  top, #3470ff, white)',
       }}
     >
       <Header />

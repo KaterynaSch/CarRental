@@ -59,7 +59,7 @@ export const CatalogListItem = ({ advert }) => {
   const handleClose = () => {
     const modalRoot = document.getElementById('#root');
     if (modalRoot) {
-      modalRoot.innerHTML = ''; // Remove the content of the modal root element
+      modalRoot.innerHTML = '';
     }
   };
 
